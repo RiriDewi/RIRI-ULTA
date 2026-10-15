@@ -1,0 +1,912 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+:root {
+--color-pink: #feecea;
+--color-white: #fff;
+--color-black: #333;
+--color-text-pink: #ff7882;
+--color-heart: #f61f1f;
+--color-bg-letter: #fff8e4;
+--color-border: #dac cbf;
+}
+
+html, body {
+width: 100%;
+min-height: 100%;
+}
+
+body {
+position: relative;
+min-height: 100vh;
+font-family: Arial, sans-serif;
+background: var(--color-pink);
+}
+
+button {
+font-family: inherit;
+}
+
+#wrapper {
+position: relative;
+min-height: 100vh;
+overflow: hidden;
+background-color: transparent;
+background-image:
+linear-gradient(0deg, transparent 24%, #fff 25%, #fff 26%, transparent 27%, transparent 74%, #fff 75%, #fff 76%, transparent 77%),
+linear-gradient(90deg, transparent 24%, #fff 25%, #fff 26%, transparent 27%, transparent 74%, #fff 75%, #fff 76%, transparent 77%);
+background-size: 80px 80px;
+z-index: 1;
+}
+
+/* HALAMAN PEMBUKA */
+
+#intro {
+position: fixed;
+inset: 0;
+z-index: 99999;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
+overflow-y: auto;
+background: linear-gradient(135deg, #ffe1eb, #ff91b8, #ffc6d9);
+font-family: Arial, sans-serif;
+transition: opacity .8s ease, visibility .8s ease;
+}
+
+#intro.hide {
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
+}
+
+.intro-card {
+width: 100%;
+max-width: 420px;
+padding: 32px 24px;
+text-align: center;
+background: rgba(255,255,255,.97);
+border: 2px solid white;
+border-radius: 28px;
+box-shadow: 0 15px 45px rgba(180,30,90,.2);
+}
+
+.intro-heart {
+font-size: 60px;
+margin-bottom: 12px;
+animation: heartbeat 1.2s infinite ease-in-out;
+}
+
+.intro-small {
+color: #b34c77;
+font-size: 12px;
+font-weight: bold;
+letter-spacing: 4px;
+}
+
+.intro-card h1 {
+margin: 12px 0;
+color: #e91e63;
+font-family: 'Coiny', cursive;
+font-size: clamp(30px, 8vw, 42px);
+line-height: 1.3;
+}
+
+.intro-divider {
+margin: 15px 0;
+color: #ff6b9a;
+font-size: 20px;
+}
+
+.intro-message {
+color: #555;
+font-size: 16px;
+line-height: 1.8;
+}
+
+.birthday-age {
+display: inline-block;
+margin-top: 15px;
+padding: 9px 18px;
+border-radius: 30px;
+background: #ffe4ee;
+color: #d81b60;
+font-size: 15px;
+font-weight: bold;
+}
+
+#countdown {
+margin: 24px 0 12px;
+color: #e91e63;
+font-size: clamp(36px, 11vw, 52px);
+font-weight: 900;
+letter-spacing: 2px;
+font-variant-numeric: tabular-nums;
+}
+
+#countdown-text {
+color: #555;
+font-size: 14px;
+line-height: 1.8;
+}
+
+#start-button {
+width: 100%;
+margin-top: 22px;
+padding: 16px 10px;
+border: 2px solid #e91e63;
+border-radius: 50px;
+background: linear-gradient(135deg, #ff4081, #ff80ab);
+color: white;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+transition: .3s ease;
+}
+
+#start-button:disabled {
+opacity: .45;
+cursor: not-allowed;
+}
+
+#start-button:not(:disabled):hover {
+background: #e91e63;
+transform: scale(1.03);
+}
+
+.intro-footer {
+margin-top: 20px;
+color: #a65b79;
+font-size: 12px;
+}
+
+/* ANIMASI */
+
+@keyframes heartbeat {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.15); }
+}
+
+@keyframes translateYFlag {
+to { transform: translateY(-10px); }
+}
+
+@keyframes txtTranslateY {
+100% {
+transform: translateY(0);
+opacity: 1;
+visibility: visible;
+}
+}
+
+@keyframes scaleCricle {
+0% { transform: scale(0); }
+10% { transform: scale(1.3); }
+20% { transform: scale(.7); }
+30%, 100% { transform: scale(1); }
+}
+
+@keyframes rotateHeart {
+0%, 50%, 100% { transform: rotate(0deg); }
+25% { transform: rotate(12deg); }
+75% { transform: rotate(-12deg); }
+}
+
+@keyframes scaleHeart {
+50% { transform: scale(1.2); }
+}
+
+@keyframes rotateCricle {
+to { transform: rotate(360deg); }
+}
+
+@keyframes balloon1 {
+0%, 50%, 100% { transform: rotate(0deg); }
+25% { transform: rotate(3deg); }
+75% { transform: rotate(-3deg); }
+}
+
+@keyframes balloon2 {
+0%, 50%, 100% { transform: rotate(10deg); }
+25% { transform: rotate(7deg); }
+75% { transform: rotate(13deg); }
+}
+
+@keyframes scaleStar {
+25% { transform: scale(.8); }
+50% { transform: scale(1.1); }
+}
+
+@keyframes opacityHeart {
+to { opacity: 1; }
+}
+
+@keyframes scaleHeartLetter {
+0% { opacity: 1; transform: scale(0); }
+10% { opacity: 1; transform: scale(1.3); }
+20% { opacity: 1; transform: scale(.7); }
+30%, 100% { opacity: 1; transform: scale(1); }
+}
+
+/* BENDERA */
+
+.flag__birthday {
+display: flex;
+justify-content: space-between;
+transform: translateY(-200px);
+animation: translateYFlag 1.5s 2s forwards;
+}
+
+.flag__birthday img {
+width: min(350px, 45vw);
+}
+
+.flag__birthday .flag__left {
+transform: rotate(-10deg) translate(-20px, 30px);
+}
+
+.flag__birthday .flag__right {
+transform: rotate(10deg) translate(20px, 30px) scaleX(-1);
+}
+
+/* KONTEN UTAMA */
+
+.content {
+width: 100%;
+position: relative;
+display: flex;
+align-items: center;
+padding-top: 3rem;
+}
+
+.content .left,
+.content .right {
+position: relative;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.content .left {
+width: 40%;
+padding-left: 60px;
+}
+
+.content .right {
+width: 60%;
+}
+
+.title {
+position: relative;
+width: 100%;
+display: flex;
+justify-content: center;
+flex-direction: column;
+font-family: 'Titan One', sans-serif;
+font-size: clamp(25px, 4vw, 48px);
+perspective: 1000px;
+}
+
+.title .happy,
+.title .birthday {
+display: flex;
+justify-content: center;
+text-shadow: 3px 3px #333, -3px 3px #333, 3px -3px #333, -3px -3px #333, 3px 6px #333;
+font-weight: bold;
+}
+
+.title .happy {
+color: white;
+}
+
+.title .birthday {
+color: var(--color-text-pink);
+}
+
+.title .happy span,
+.title .birthday span {
+transform: translateY(50px);
+opacity: 0;
+visibility: hidden;
+animation: txtTranslateY .5s var(--t) forwards;
+}
+
+.title .hat {
+position: absolute;
+width: 110px;
+right: 20px;
+top: -180px;
+transform: rotate(-40deg);
+z-index: 2;
+animation: hatDrop 2s 1s forwards;
+}
+
+.title .hat img {
+width: 100%;
+}
+
+@keyframes hatDrop {
+50%, 100% {
+top: -30px;
+transform: rotate(0deg);
+}
+}
+
+/* TANGGAL DAN NAMA */
+
+.date__of__birth,
+.name {
+display: flex;
+justify-content: space-around;
+align-items: center;
+background: var(--color-text-pink);
+border-radius: 50px;
+margin-top: 20px;
+font-family: 'Sriracha', cursive;
+}
+
+.date__of__birth {
+min-height: 42px;
+border: 3px solid var(--color-black);
+padding: 5px 15px;
+}
+
+.date__of__birth span {
+margin: 0 5px;
+font-size: 17px;
+font-weight: bold;
+}
+
+.name {
+position: absolute;
+bottom: -20px;
+padding: 5px 20px;
+border: 3px solid var(--color-black);
+}
+
+.name span {
+margin: 0 12px;
+font-size: 24px;
+font-weight: bold;
+}
+
+.fa-heart {
+color: var(--color-heart);
+filter: drop-shadow(0 0 3px var(--color-heart));
+animation: scaleHeart 1s infinite linear;
+}
+
+/* TOMBOL SURAT */
+
+.left .btn {
+margin-top: 5px;
+}
+
+#btn__letter {
+margin-top: 20px;
+padding: 10px 20px;
+background: var(--color-text-pink);
+border: 3px solid var(--color-black);
+border-radius: 50px;
+font-family: 'Sriracha', cursive;
+font-size: 16px;
+cursor: pointer;
+transition: .3s ease;
+}
+
+#btn__letter:hover {
+background: var(--color-heart);
+border-color: var(--color-heart);
+color: white;
+box-shadow: 0 3px 8px rgba(0,0,0,.24);
+}
+
+#btn__letter:hover i {
+animation: rotateHeart 1s infinite linear;
+}
+
+#btn__letter i {
+margin-left: 5px;
+}
+
+/* FOTO */
+
+.content .right .box__account {
+position: relative;
+animation: imageEnter 1.5s 1s both;
+}
+
+@keyframes imageEnter {
+from { transform: translateY(100px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+
+.content .right .image {
+width: min(350px, 34vw);
+aspect-ratio: 1;
+border-radius: 50%;
+overflow: hidden;
+border: 6px solid var(--color-black);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.content .right .image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+/* BALON */
+
+.right .balloon_one,
+.right .balloon_two {
+position: absolute;
+}
+
+.right .balloon_one {
+top: -40px;
+left: -50px;
+animation: balloon1 2s infinite linear;
+}
+
+.right .balloon_two {
+top: 140px;
+right: -45px;
+z-index: -1;
+animation: balloon2 2s infinite linear;
+}
+
+.right .balloon_one img,
+.right .balloon_two img {
+max-width: 90px;
+}
+
+/* LINGKARAN HARI ULANG TAHUN */
+
+.cricle {
+position: absolute;
+top: 10px;
+right: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+animation: scaleCricle 2s 2s both;
+}
+
+.text__cricle {
+position: relative;
+width: 100px;
+height: 100px;
+background: var(--color-text-pink);
+border: 4px solid var(--color-black);
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+animation: rotateCricle 8s linear infinite;
+}
+
+.text__cricle span {
+position: absolute;
+top: 0;
+left: 50%;
+color: var(--color-black);
+transform: rotate(calc(var(--i) * 24deg));
+transform-origin: 0 45px;
+font-family: 'Sriracha', cursive;
+font-size: 11px;
+}
+
+.cricle > .fa-heart {
+position: absolute;
+}
+
+/* BINTANG DAN BUNGA */
+
+.decorate_star {
+position: absolute;
+background: var(--color-black);
+clip-path: polygon(0 50%, 35% 35%, 50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%);
+animation: scaleStar 2s infinite ease-in-out;
+}
+
+.star1 { width: 20px; height: 20px; top: 75px; left: 25%; }
+.star2 { width: 15px; height: 20px; top: 35px; right: 25%; }
+.star3 { width: 14px; height: 14px; top: 290px; left: 55%; }
+.star4 { width: 18px; height: 18px; bottom: 60px; left: 35px; }
+.star5 { width: 16px; height: 18px; bottom: 140px; left: 40%; }
+
+.decorate_flower--one,
+.decorate_flower--two,
+.decorate_flower--three {
+position: absolute;
+}
+
+.decorate_flower--one { top: 250px; left: 50px; }
+.decorate_flower--two { top: 225px; left: 45%; }
+.decorate_flower--three { top: 150px; right: 18%; }
+
+.decorate_flower--one img,
+.decorate_flower--two img,
+.decorate_flower--three img {
+width: 25px;
+}
+
+.decorate_bottom {
+position: absolute;
+right: 0;
+bottom: -10px;
+}
+
+.decorate_bottom img,
+.smiley__icon img {
+max-width: 100px;
+}
+
+.smiley__icon {
+position: absolute;
+bottom: 100px;
+left: 45%;
+}
+
+/* SURAT */
+
+.box__letter {
+position: fixed;
+inset: 0;
+z-index: 100;
+display: none;
+align-items: center;
+justify-content: center;
+padding: 15px;
+overflow-y: auto;
+background: rgba(0,0,0,.6);
+}
+
+.letter__border {
+position: relative;
+width: min(850px, 94vw);
+height: min(580px, 88vh);
+padding: 12px;
+background: white;
+border-radius: 22px;
+box-shadow: 0 8px 35px rgba(0,0,0,.2);
+display: none;
+}
+
+.letter {
+width: 100%;
+height: 100%;
+padding: 12px;
+background: var(--color-bg-letter);
+border-radius: 12px;
+overflow: hidden;
+}
+
+.title__letter {
+min-height: 42px;
+padding: 5px;
+text-align: center;
+color: #e91e63;
+font-family: 'Dancing Script', cursive;
+font-size: 28px;
+font-weight: bold;
+line-height: 1.4;
+}
+
+.title__letter .fa-solid {
+margin-left: 5px;
+font-size: 18px;
+}
+
+.content__letter {
+display: flex;
+width: 100%;
+height: calc(100% - 45px);
+padding-top: 10px;
+gap: 10px;
+}
+
+.content__letter .left {
+position: relative;
+width: 35%;
+min-width: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+border-right: 2px solid var(--color-border);
+padding: 10px;
+}
+
+#heart__letter {
+width: 100%;
+max-width: 240px;
+opacity: 0;
+object-fit: contain;
+}
+
+#heart__letter.animationOp,
+.love__img.animationOp,
+#mewmew.animationOp {
+animation: opacityHeart 1s .2s forwards;
+}
+
+.heart {
+position: absolute;
+width: 20px;
+opacity: 0;
+}
+
+.heart.animation {
+animation: scaleHeartLetter 1s infinite ease-in-out;
+}
+
+.heart_1 { top: 20%; left: 10%; }
+.heart_2 { top: 15%; right: 15%; }
+.heart_3 { bottom: 20%; left: 25%; }
+.heart_4 { top: 50%; right: 10%; }
+
+.content__letter .right {
+position: relative;
+width: 65%;
+min-width: 0;
+min-height: 0;
+}
+
+.love__img {
+display: none;
+}
+
+.text__letter {
+width: 100%;
+height: 100%;
+padding: 12px 15px 35px;
+overflow-y: auto;
+overflow-wrap: anywhere;
+}
+
+.text__letter p {
+color: #333;
+font-family: Arial, sans-serif;
+font-size: 17px;
+font-weight: 400;
+line-height: 1.9;
+text-align: left;
+white-space: pre-wrap;
+}
+
+#mewmew {
+position: absolute;
+width: 60px;
+right: 0;
+bottom: 0;
+opacity: 0;
+}
+
+.close {
+position: absolute;
+top: -10px;
+right: -10px;
+z-index: 5;
+width: 35px;
+height: 35px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: white;
+border: none;
+border-radius: 50%;
+box-shadow: 0 2px 8px rgba(0,0,0,.2);
+cursor: pointer;
+font-size: 18px;
+}
+
+/* RESPONSIVE HP */
+
+@media screen and (max-width: 658px) {
+#wrapper {
+min-height: 100vh;
+overflow-x: hidden;
+overflow-y: auto;
+}
+
+.flag__birthday img {
+    width: 48vw;
+}
+
+.flag__birthday .flag__left {
+    transform: rotate(-10deg) translate(-30px, 10px);
+}
+
+.flag__birthday .flag__right {
+    transform: rotate(10deg) translate(30px, 10px) scaleX(-1);
+}
+
+.content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    padding: 35px 15px 80px;
+}
+
+.content .left,
+.content .right {
+    width: 100%;
+    padding-left: 0;
+}
+
+.title {
+    font-size: clamp(25px, 7vw, 36px);
+    letter-spacing: 3px;
+}
+
+.title .hat {
+    width: 75px;
+    right: 5px;
+    top: -50px;
+}
+
+.date__of__birth {
+    margin-top: 20px;
+}
+
+.date__of__birth span {
+    font-size: 15px;
+}
+
+#btn__letter {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.content .right .image {
+    width: min(240px, 65vw);
+}
+
+.name {
+    bottom: -18px;
+    padding: 4px 15px;
+}
+
+.name span {
+    font-size: 20px;
+}
+
+.right .balloon_one {
+    left: -20px;
+    top: -25px;
+}
+
+.right .balloon_two {
+    right: -15px;
+    top: 100px;
+}
+
+.right .balloon_one img,
+.right .balloon_two img {
+    width: 65px;
+}
+
+.cricle {
+    top: -20px;
+    right: 0;
+}
+
+.text__cricle {
+    width: 75px;
+    height: 75px;
+}
+
+.text__cricle span {
+    font-size: 8px;
+    transform-origin: 0 33px;
+}
+
+.decorate_flower--one { top: 230px; left: 20px; }
+.decorate_flower--two { top: 45%; left: 10px; }
+.decorate_flower--three { top: 53%; right: 20px; }
+
+.smiley__icon {
+    bottom: 30px;
+    left: 10px;
+}
+
+.box__letter {
+    padding: 12px;
+}
+
+.letter__border {
+    width: 96vw;
+    height: min(650px, 88dvh);
+    max-height: 88dvh;
+    padding: 8px;
+    border-radius: 16px;
+}
+
+.letter {
+    padding: 8px;
+}
+
+.title__letter {
+    min-height: 35px;
+    font-size: clamp(20px, 5.5vw, 26px);
+}
+
+.content__letter {
+    height: calc(100% - 38px);
+    gap: 5px;
+}
+
+.content__letter .left {
+    width: 27%;
+    padding: 4px;
+}
+
+.content__letter .right {
+    width: 73%;
+}
+
+.text__letter {
+    padding: 8px 7px 30px;
+}
+
+.text__letter p {
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+#mewmew {
+    width: 40px;
+}
+
+.close {
+    width: 32px;
+    height: 32px;
+}
+
+}
+
+@media screen and (max-width: 380px) {
+.intro-card {
+padding: 25px 17px;
+}
+
+#countdown {
+    font-size: 34px;
+    letter-spacing: 1px;
+}
+
+.content__letter .left {
+    width: 22%;
+}
+
+.content__letter .right {
+    width: 78%;
+}
+
+.text__letter p {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after {
+animation-duration: .01ms !important;
+animation-iteration-count: 1 !important;
+scroll-behavior: auto !important;
+}
+}
